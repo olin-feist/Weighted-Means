@@ -7,13 +7,13 @@
 using namespace std;
 
 //import csv file to "file"
-static ifstream file("5km_grid_combined_with_0to500dm_ngdc_vat.csv");
+ifstream file("5km_grid_combined_with_0to500dm_ngdc_vat.csv");
 
 
 int main(){
 
     //outputdata is an array of vectors used to represent a table with GridID | SumCount | Sum(Count*depth)
-    static vector <int> outputdata[4];
+    vector <int> outputdata[3];
     
     //skip first line of csv file (Skip Headers)
     string line;
@@ -46,15 +46,16 @@ int main(){
         outputdata[2].push_back(a[3]);
 
     //--------------------
-  
+    //vector V is use to hold current line of csv file
+    vector<int> v;
+    
     //loop through csv file
-    for(int row=0;row<1040000;row++){
+    while (getline(file, line)){
         
-        //intialize Vector V
-        vector<int> v;
+        //clear vector
+        v.clear();
 
         //get current line value and add it to sting line then convert to string stream
-        getline(file, line); 
         stringstream ss(line); 
 
         //convert line into set of strings, store in vector V
@@ -71,8 +72,7 @@ int main(){
         }
 
         //loop through table and either add to existing values or create new row
-        int i;
-        for(i=0;i<outputdata[0].size();i++){
+        for(int i=0;i<outputdata[0].size();i++){
                 
             if((outputdata[0][i])==v[2]){
                 outputdata[1][i]+=v[1];
