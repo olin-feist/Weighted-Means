@@ -78,15 +78,13 @@ int main(){
     file_stream.open ("WeightedMeans.txt");
 
     //code used to write all needed data to txt file
-    file_stream<<setw(10)<<"Grid ID";
-    file_stream<<setw(10)<<"Mean"<<endl;
+    file_stream<<"Gri_ID"<<"\t";
+    file_stream<<"Mean"<<endl;
     for(int i=0;i<outputdata[0].size();i++){
-        file_stream<< setw(10)<<outputdata[0][i]<<"\t";
-
-        cout.precision(7);
-        cout << std::fixed;
+        file_stream<<outputdata[0][i]<<"\t";
+         
         float weightedmean=((float)(outputdata[2][i])/(float)(outputdata[1][i]))/(float)10;
-        file_stream<< setw(10)<<weightedmean<<endl;
+        file_stream<<fixed<<setprecision(8)<<weightedmean<<endl;
 
     }
 
