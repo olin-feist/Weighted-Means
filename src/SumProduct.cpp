@@ -84,7 +84,7 @@ int main(){
         file_stream<<outputdata[0][i]<<"\t";
          
         float weightedmean=((float)(outputdata[2][i])/(float)(outputdata[1][i]))/(float)10;
-        file_stream<<fixed<<setprecision(8)<<weightedmean<<endl;
+        file_stream<<fixed<<setprecision(15)<<weightedmean<<endl;
 
     }
 
