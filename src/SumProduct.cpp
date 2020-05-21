@@ -78,7 +78,7 @@ int main(){
     file_stream.open ("WeightedMeans.txt");
 
     //code used to write all needed data to txt file
-    file_stream<<"Gri_ID"<<"\t";
+    file_stream<<"Grid_ID"<<"\t";
     file_stream<<"Mean"<<endl;
     for(int i=0;i<outputdata[0].size();i++){
         file_stream<<outputdata[0][i]<<"\t";
