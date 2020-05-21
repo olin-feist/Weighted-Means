@@ -20,34 +20,12 @@ int main(){
     getline(file, line);
 
 
-    //--- Code used to add first row needed in table
-    //intialize Vector V
-    vector<int> a;
-     
-        getline(file, line); 
-        
-        stringstream aa(line); 
 
-        //convert line into set of strings, store in vector V
-        /* 
-        v[1]=count
-        v[2]= grid id
-        v[3]=depth
-        */
-
-        while (aa.good()) { 
-            string substr; 
-            getline(aa, substr, ','); 
-          
-            a.push_back(stoi(substr)); 
-        }
-        outputdata[0].push_back(a[2]);
-        outputdata[1].push_back(a[1]);
-        outputdata[2].push_back(a[3]);
-
-    //--------------------
     //vector V is use to hold current line of csv file
     vector<int> v;
+
+
+
     
     //loop through csv file
     while (getline(file, line)){
@@ -72,25 +50,29 @@ int main(){
         }
 
         //loop through table and either add to existing values or create new row
+        
         for(int i=0;i<outputdata[0].size();i++){
-                
+         
             if((outputdata[0][i])==v[2]){
-                outputdata[1][i]+=v[1];
-                outputdata[2][i]+=v[3]*v[1];
+               
+                (outputdata[1][i])+=(v[1]);
+                (outputdata[2][i])+=((v[3])*(v[1]));
                 //used to skip code to add a row
                 goto skip;
+                
             }
         }
 
         //if current gridID doesnt match any current then add new row
         outputdata[0].push_back(v[2]);
         outputdata[1].push_back(v[1]);
-        outputdata[2].push_back(v[3]);
+        outputdata[2].push_back(v[3]*v[1]);
 
         skip: 
          continue;          
     }  
-    
+  
+
     //create an open text file weighted means
     ofstream file_stream;                                                  
     file_stream.open ("WeightedMeans.txt");
@@ -100,7 +82,8 @@ int main(){
     file_stream<<setw(12)<<"Mean"<<endl;
     for(int i=0;i<outputdata[0].size();i++){
         file_stream<< setw(10)<<outputdata[0][i]<<"\t";
-
+        file_stream<< setw(10)<<outputdata[1][i]<<"\t";
+        file_stream<< setw(10)<<outputdata[2][i]<<"\t";
         cout.precision(7);
         cout << std::fixed;
         float weightedmean=((float)(outputdata[2][i])/(float)(outputdata[1][i]))/(float)10;
