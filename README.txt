@@ -1,7 +1,8 @@
 Olin Feist
 
 C++ script to read CSV file and find weighted means
-
+CSV files must be formated with the following columns
+Value | Count | Grid_Id | Depth
 
 To Run script simple:
 1. Open terminal and go to directory, then got to src
