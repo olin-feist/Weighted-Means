@@ -4,8 +4,9 @@
 #include <sstream>
 #include <vector>
 #include <iomanip>
+#include <chrono> 
 using namespace std;
-
+using namespace std::chrono;
 
 
 
@@ -37,7 +38,7 @@ int main(){
         cout<<"Running..."<<endl;
     }
 
-
+    auto start = high_resolution_clock::now(); 
     //vector V is use to hold current line of csv file
     vector<int> v;
 
@@ -107,6 +108,13 @@ int main(){
 
     //close file
    file_stream.close();
+
+   //get time of run
+   auto stop = high_resolution_clock::now(); 
+   auto duration = duration_cast<milliseconds>(stop - start); 
+
+    //display time and done
     cout<<"Done."<<endl;
+    cout << "Elapsed Time: "<<duration.count()<<" milliseconds" << endl; 
     return 0;
 }
