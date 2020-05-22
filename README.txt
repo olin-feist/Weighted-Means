@@ -12,6 +12,10 @@ To Run script simple:
 3. run: "./SumProduct" || "./SumProductNoTime"
 4. Open weighted means text file
 
+To Run on windows:
+1. Run SumProduct.exe
+2. Enter File name
+
 
 Code explanations:
 
