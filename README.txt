@@ -4,6 +4,7 @@ C++ script to read CSV file and find weighted means
 CSV files must be formated with the following columns(Names dont matter but data must be in that order)
 Value | Count | Grid_Id | Depth
 
+If g++ is less than 4.7 use SumProductNoTime. To check do "g++ --version"
 
 To Run script simple:
 1. Open terminal and go to directory, then got to src
