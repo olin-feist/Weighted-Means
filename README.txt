@@ -19,7 +19,7 @@ with grid ID (Seen below)
 		gridID	Depth	Count				Table
 	1:	103	-240	5------------currenline--->	GridId	SumCount	DepthSum
 	2:	103	-230	3			 |-	102	100		-2000
-	3:	203	-210	2			 |-	104	50		-200									
+	3:	203	-210	2			 |-	104	50		-200						
 	4:	405	-40	2			 |-	203	40		-300
 	4:	405	-45	3			 |---->	103	(Add count)	(Add (Count*depth)
 
