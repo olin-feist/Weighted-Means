@@ -4,10 +4,11 @@ C++ script to read CSV file and find weighted means
 CSV files must be formated with the following columns(Names dont matter but data must be in that order)
 Value | Count | Grid_Id | Depth
 
+
 To Run script simple:
 1. Open terminal and go to directory, then got to src
-2 run: "g++ -O2 SumProduct.cpp -o SumProduct"
-3. run: "./SumProduct"
+2 run: "g++ -O2 SumProduct.cpp -o SumProduct" || "g++ -O2 SumProductNoTime.cpp -o SumProductNoTime"
+3. run: "./SumProduct" || "./SumProductNoTime"
 4. Open weighted means text file
 
 
